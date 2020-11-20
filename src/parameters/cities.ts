@@ -195,5 +195,11 @@ export const cities: ICity[] = [
     en: 'Bila Tserkva',
     ru: 'Белая Церковь',
     ua: 'Біла Церква'
+  },
+  {
+    id: CityId.UMAN,
+    en: 'Uman\'',
+    ru: 'Умань',
+    ua: 'Умань'
   }
 ];

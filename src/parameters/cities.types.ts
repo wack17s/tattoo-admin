@@ -31,6 +31,7 @@ export enum CityId {
   KAMIANSKE = 'kamianske',
   KREMENCHUK = 'kremenchuk',
   BILA_TSERKVA = 'bila tserkva',
+  UMAN = 'uman'
 }
 
 export interface ICity {
