@@ -8,13 +8,14 @@ import { BooleanText } from '../BooleanText';
 import { BooleanArray } from '../BooleanArray';
 
 export const TattooerList = props => (
-  <List {...props} perPage={50}>
+  <List {...props}>
     <Datagrid>
       <BooleanField source="approved" />
-      <InstagramUrlField source="id" label='Instagram' />
+      <InstagramUrlField source="instagram" label='Instagram' />
       <TextField source="city" />
       <BooleanArray source="styles" />
-      <BooleanArray source="postURIs" />
+      {/* <BooleanArray source="postURIs" /> */}
+      <BooleanArray source="posts" />
       <BooleanText source="about" />
       <BooleanText source='aboutRaw' />
       {/* <TextField source="aboutRaw" /> */}
