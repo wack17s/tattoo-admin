@@ -9,7 +9,8 @@ import {
   SimpleFormIterator,
   ArrayInput,
   BooleanInput,
-  ReferenceInput
+  ReferenceInput,
+  FormDataConsumer
 } from "react-admin";
 
 // TS hack
@@ -30,17 +31,25 @@ export const TattooerUpdateForm = props => {
       <InstaLink source="instagram" />
       <BooleanInput source="approved" />
       {/* <TextInput source="city" required /> */}
-      <ReferenceInput source="city" reference="city" label="City" perPage={100} sort={{ field: 'name', order: 'ASC' }}>
+      <ReferenceInput source="city_id" reference="city" label="City" perPage={100} sort={{ field: 'name', order: 'ASC' }}>
         <SelectInput optionText="name" required />
       </ReferenceInput>
-      <ReferenceArrayInput source="styles" reference="style" label="Styles" perPage={100} sort={{ field: 'name', order: 'ASC' }}>
+      <ReferenceArrayInput source="style_ids" reference="style" label="Styles" perPage={100} sort={{ field: 'name', order: 'ASC' }}>
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
       <TextInput source="about" multiline />
       <TextInput source="aboutRaw" disabled multiline />
       <InstgramArrayInput>
         <SimpleFormIterator>
-          <Image />
+        <FormDataConsumer>
+            {({ getSource, scopedFormData }) => {
+                return (
+                    <Image
+                        record={scopedFormData}
+                    />
+                );
+            }}
+        </FormDataConsumer>
           <TextInput source='uri' />
         </SimpleFormIterator>
       </InstgramArrayInput>
