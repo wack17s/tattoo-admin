@@ -16,7 +16,7 @@ import {
 // TS hack
 const InstgramArrayInput = ({ ...props }) => React.createElement(ArrayInput as any, { ...props, source: 'posts' });
 const Image = (props) => {
-  return <img key={props.record} src={props.record.uri} style={{ width: 100, height: 100 }} />;
+  return props.record ? <img key={props.record} src={props.record.uri} style={{ width: 300, height: 300, objectFit: 'cover' }} /> : null;
 };
 
 
