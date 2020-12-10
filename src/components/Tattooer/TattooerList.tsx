@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BooleanField, List, Datagrid, TextField, EditButton, ReferenceArrayField, ReferenceField, DeleteButton, SingleFieldList, ArrayField } from 'react-admin';
+import { BooleanField, List, Datagrid, TextField, EditButton, ReferenceArrayField, ReferenceField, DeleteButton, SingleFieldList } from 'react-admin';
 
 import { InstagramUrlField } from '../InstagramUrlField';
 import { BooleanText } from '../BooleanText';
@@ -8,12 +8,14 @@ import { BooleanArray } from '../BooleanArray';
 export const TattooerList = props => (
   <List {...props} perPage={50}>
     <Datagrid>
-      <BooleanField source="approved" />
+      <BooleanField source="readyToShow" />
+      <BooleanField source="needUpdate" />
+      <BooleanField source="needReview" />
       <InstagramUrlField source="instagram" label='Instagram' />
       {/* <TextField source="city" />
       <BooleanArray source="styles" /> */}
-      <ReferenceField label="City" source="city_id" reference="city">
-        <TextField source="name" />
+      <ReferenceField source="city_id" reference="city" label="City">
+        <TextField source="ru" />
       </ReferenceField>
       <ReferenceArrayField label="Styles" source="style_ids" reference="style">
         <SingleFieldList>

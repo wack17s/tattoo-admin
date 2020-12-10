@@ -1,10 +1,17 @@
 import * as React from 'react';
-import { Admin as RAAdmin, Resource, EditGuesser, ListGuesser, fetchUtils } from 'react-admin';
+import { Admin as RAAdmin, Resource, fetchUtils } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 
 import { TattooerList } from './components/Tattooer/TattooerList'
 import { TattooerEdit } from './components/Tattooer/TattooerEdit'
-import { TattooerCreate } from './components/Tattooer/TattooerCreate';
+
+import { CityList } from './components/City/CityList'
+import { CityEdit } from './components/City/CityEdit'
+import { CityCreate } from './components/City/CityCreate'
+
+import { StyleList } from './components/Style/StyleList'
+import { StyleEdit } from './components/Style/StyleEdit'
+import { StyleCreate } from './components/Style/StyleCreate'
 
 import { authProvider } from './authProvider';
 
@@ -21,8 +28,8 @@ const httpClient = (url, options: any = {}) => {
 
 export const Admin = () => (
   <RAAdmin dataProvider={jsonServerProvider(process.env.REACT_APP_SERVER_URL, httpClient)} authProvider={authProvider}>
-    <Resource name="tattooer" list={TattooerList} edit={TattooerEdit} create={TattooerCreate} />
-    <Resource name="style" list={ListGuesser} edit={EditGuesser} />
-    <Resource name="city" list={ListGuesser} edit={EditGuesser} />
+    <Resource name="tattooer" list={TattooerList} edit={TattooerEdit} />
+    <Resource name="style"  list={StyleList} edit={StyleEdit} create={StyleCreate} />
+    <Resource name="city" list={CityList} edit={CityEdit} create={CityCreate} />
   </RAAdmin>
 );
