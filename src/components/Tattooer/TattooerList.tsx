@@ -1,16 +1,17 @@
 import * as React from "react";
-import { BooleanField, List, Datagrid, TextField, EditButton, ReferenceArrayField, ReferenceField, DeleteButton, SingleFieldList } from 'react-admin';
+import { BooleanField, List, Datagrid, TextField, EditButton, ReferenceArrayField, ReferenceField, DeleteButton, SingleFieldList, DateField } from 'react-admin';
 
 import { InstagramUrlField } from '../InstagramUrlField';
 import { BooleanText } from '../BooleanText';
 import { BooleanArray } from '../BooleanArray';
 
 export const TattooerList = props => (
-  <List {...props} perPage={50}>
+  <List {...props} perPage={50} sort={{ field: 'instagram', order: 'ASC' }}>
     <Datagrid>
       <BooleanField source="readyToShow" />
       <BooleanField source="needUpdate" />
       <BooleanField source="needReview" />
+      <DateField source="createdAt" />
       <InstagramUrlField source="instagram" label='Instagram' />
       {/* <TextField source="city" />
       <BooleanArray source="styles" /> */}

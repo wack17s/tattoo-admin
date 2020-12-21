@@ -29,6 +29,8 @@ const httpClient = (url, options: any = {}) => {
 export const Admin = () => (
   <RAAdmin dataProvider={jsonServerProvider(process.env.REACT_APP_SERVER_URL, httpClient)} authProvider={authProvider}>
     <Resource name="tattooer" list={TattooerList} edit={TattooerEdit} />
+    <Resource name="tattooer-ready" list={TattooerList} edit={TattooerEdit} />
+    <Resource name="tattooer-not-ready" list={TattooerList} edit={TattooerEdit} />
     <Resource name="style"  list={StyleList} edit={StyleEdit} create={StyleCreate} />
     <Resource name="city" list={CityList} edit={CityEdit} create={CityCreate} />
   </RAAdmin>
