@@ -1,7 +1,7 @@
 var http = require('http');
 
 var loginRequest = http.request({
-  host: process.env.REACT_APP_SERVER_URL,
+  host: process.env.HOST_URL,
   path: '/auth/login',
   port: process.env.PORT,
   method: 'POST',
@@ -18,7 +18,7 @@ var loginRequest = http.request({
     const { access_token } = JSON.parse(str);
 
     var upadatePhotosRequest = http.request({
-      host: process.env.REACT_APP_SERVER_URL,
+      host: process.env.HOST_URL,
       path: '/tasks/update-photos',
       port: process.env.PORT,
       method: 'POST',
